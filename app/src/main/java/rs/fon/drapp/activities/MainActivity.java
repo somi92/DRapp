@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RoutinesCollection rc = RoutinesManager.getInstance().loadRoutines(this, "test.json");
+        RoutinesCollection rc = RoutinesManager.getInstance().loadRoutines(this, "routines.json");
         Toast.makeText(this, "Done", Toast.LENGTH_LONG).show();
     }
 

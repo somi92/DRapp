@@ -86,7 +86,7 @@ public class Routine implements Serializable {
             return false;
         }
         steps.add(step);
-//        step.setParentRoutine(this);
+        sortSteps();
         return true;
     }
 
@@ -95,9 +95,11 @@ public class Routine implements Serializable {
             steps.remove(step);
         }
         steps.add(step);
+        sortSteps();
     }
 
     public boolean removeStep(RoutineStep step) {
+        sortSteps();
         return steps.remove(step);
     }
 
@@ -117,25 +119,17 @@ public class Routine implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.id);
-        return hash;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Routine routine = (Routine) o;
+
+        return id.equals(routine.id);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Routine other = (Routine) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
+    public int hashCode() {
+        return id.hashCode();
     }
-
 }
