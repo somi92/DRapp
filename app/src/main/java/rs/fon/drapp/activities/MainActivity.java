@@ -1,9 +1,14 @@
-package rs.fon.drapp;
+package rs.fon.drapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import rs.fon.drapp.R;
+import rs.fon.drapp.domain.RoutinesCollection;
+import rs.fon.drapp.json.RoutinesManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RoutinesCollection rc = RoutinesManager.getInstance().loadRoutines(this, "test.json");
+        Toast.makeText(this, "Done", Toast.LENGTH_LONG).show();
     }
 
     @Override
