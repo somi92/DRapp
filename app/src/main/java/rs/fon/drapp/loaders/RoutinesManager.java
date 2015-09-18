@@ -1,4 +1,4 @@
-package rs.fon.drapp.json;
+package rs.fon.drapp.loaders;
 
 import android.content.Context;
 
